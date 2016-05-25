@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <div class="transition1"  style="pointer-events:{{(loading.status) ? 'all': 'none'}};position:absolute;background: rgba(255, 255, 255, {{(loading.status) ? 0.5: 0}});top:0;left:0;width:100%;height:100%;z-index:9999;">
+
+        <div style="height:4px;width:250px;background: rgba(0, 0, 0, {{(loading.status) ? 0.5: 0}});top: 50%; position: absolute;left: calc(50% - 125px);">
+            <div class="transition1" style="height:2px;width:{{loading.per}}%;background: rgba(200, 0, 0, {{(loading.status) ? 1: 0}});margin:1px;;"></div>
+        </div>
+    </div>
+
+    <div class="ui raised very padded text container segment">
+        <form class="ui form">
+            <div class="field">
+                <label>File upload</label>
+                <input type="file" fileread="upload" />
+            </div>
+            <button class="ui button" type="submit" ng-click="loadFile()">Submit</button>
+        </form>
+    </div>
+
+    <div class="ui raised very padded text container segment">
+        <table class="ui celled striped table">
+            <thead>
+                <tr>
+                    <th colspan="3">
+                        Loaded Files
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="(key, value) in files track by $index">
+                    <td class="collapsing">
+                        <span style="margin-right:10px;">{{value.name}}</span>
+                    </td>
+                    <td class="collapsing">
+                        <button class="mini ui button" type="submit" ng-click="removeFile(value.name)">
+                            <i class="trash icon"></i>
+                        </button>
+                    </td>
+                    <td class="collapsing">
+                        <button class="mini ui button" type="submit" ng-click="graphView(value.name, 'simple')">
+                            simple
+                        </button>
+                        <button class="mini ui button" type="submit" ng-click="graphView(value.name, 'full')">
+                            full
+                        </button>
+                        <button class="mini ui button" type="submit" ng-click="graphView(value.name, 'rose')">
+                            rose
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

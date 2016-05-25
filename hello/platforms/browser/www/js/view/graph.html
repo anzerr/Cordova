@@ -2,6 +2,18 @@
 
     <div class="ui raised very padded text container segment">
         <form class="ui form">
+            <div class="field" style="text-align:center;">
+                <button class="mini ui button" type="submit" ng-click="graphView('simple')">
+                    simple
+                </button>
+                <button class="mini ui button" type="submit" ng-click="graphView('full')">
+                    full
+                </button>
+                <button class="mini ui button" type="submit" ng-click="graphView('rose')">
+                    rose
+                </button>
+            </div>
+
             <div class="field">
                 <label>Graph table</label>
                 <select ng-model="type" ng-change="updateGraph()">

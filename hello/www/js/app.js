@@ -17,8 +17,10 @@ var _app;
                 'js/chart/js/modules/exporting.js',
 
                 'js/controller/main.js',
-                'js/controller/graph.js',
-                'js/controller/upload.js'
+                'js/controller/upload.js',
+                'js/controller/graph/graph.js',
+                'js/controller/graph/graphFull.js',
+                'js/controller/graph/graphRose.js'
             ]));
         }).then(function() {
             $.app.config(['$routeProvider', function($routeProvider) {
@@ -29,21 +31,37 @@ var _app;
                 }).when('/upload', {
                     templateUrl: 'js/view/upload.html',
                     controller: 'uploadCtrl'
-                }).when('/graph/:key', {
+                }).when('/graph/:key/simple', {
                     templateUrl: 'js/view/graph.html',
                     controller: 'graphCtrl'
+                }).when('/graph/:key/full', {
+                    templateUrl: 'js/view/graph.html',
+                    controller: 'graphFullCtrl'
+                }).when('/graph/:key/rose', {
+                    templateUrl: 'js/view/graphRose.html',
+                    controller: 'graphRoseCtrl'
                 }).otherwise({
                     redirectTo: '/'
                 });
             }]);
 
             $.storage = {
-                file: [],
-                data: []
+                file: {},
+                data: {}
             };
 
+            var menu = true;
             angular.bootstrap(document, ['app']);
-            jQuery('#logo').css({top:'50px', left:'50px'});
+            jQuery('#logo').css({top:'50px', left:'50px'}).on('click', function() {
+                if (menu) {
+                    jQuery('#menu').css({left:'-150px'});
+                    jQuery('#mainPage').css({paddingLeft:'0px'});
+                } else {
+                    jQuery('#menu').css({left:'-50px'});
+                    jQuery('#mainPage').css({paddingLeft:'100px'});
+                }
+                menu = !menu;
+            });
             setTimeout(function() {
                 jQuery('#loadBlock').css({opacity:0, 'pointer-events':'none'});
                 jQuery('#menu').css({left:'-50px'});
