@@ -1,0 +1,37 @@
+<div class="container-fluid">
+
+    <div class="ui raised very padded text container segment">
+        <form class="ui form">
+            <div class="field">
+                <label>File upload</label>
+                <input type="file" fileread="upload" />
+            </div>
+            <button class="ui button" type="submit" ng-click="loadFile()">Submit</button>
+        </form>
+    </div>
+
+    <div class="ui raised very padded text container segment">
+        <table class="ui celled striped table">
+            <thead>
+                <tr>
+                    <th colspan="1">
+                        Loaded Files
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="(key, value) in files track by $index">
+                    <td class="collapsing">
+                        <span style="margin-right:10px;">{{value.name}}</span>
+                        <button class="mini ui button" type="submit" ng-click="removeFile(value.name)">
+                            <i class="trash icon"></i>
+                        </button>
+                        <button class="mini ui button" type="submit" ng-click="removeView(value.name)">
+                            <i class="edit icon"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

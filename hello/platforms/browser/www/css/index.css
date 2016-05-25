@@ -1,0 +1,91 @@
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    color: #333333;
+    font-family: Segoe UI Light,Open Sans,helvetica,arial,sans-serif;
+}
+
+#loadBlock {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    -webkit-transition: all 2s;
+    transition: all 2s;
+}
+
+#logo {
+    position: absolute;
+    top:50%;
+    left:50%;
+    width:1px;
+    height:1px;
+}
+
+#menu {
+    background-color: black;
+    position: absolute;
+    left: -150px;
+    top: 0px;
+    width: 150px;
+    height: 100%;
+    padding-left: 50px;
+    padding-top: 100px;
+}
+
+.transition {
+    webkit-transition: all 2s ;
+    transition: all 2s;
+}
+
+.transition1 {
+    webkit-transition: all 1s cubic-bezier(0.47, 1.51, 0.93, 1);
+    transition: all 1s cubic-bezier(0.47, 1.51, 0.93, 1);
+}
+
+.transition2 {
+    webkit-transition: all 2s cubic-bezier(0.47, 1.51, 0.93, 1);
+    transition: all 2s cubic-bezier(0.47, 1.51, 0.93, 1);
+}
+
+/* The animation code */
+@keyframes example {
+    from {width: 80px; height: 80px; top: calc(50% - 40px); left: calc(50% - 40px); opacity: 0.7;}
+    to {width: 160px; height: 160px; top: calc(50% - 80px); left: calc(50% - 80px); opacity: 0;}
+}
+
+.loader {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: calc(50% - 40px);
+    left: calc(50% - 40px);
+}
+
+.pulse {
+    animation-name: example;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+.lines {
+    height: 2px;
+    width: 100%;
+    background: #0957a0; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #0957a0 , white); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #0957a0, white); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #0957a0, white); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #0957a0 , white); /* Standard syntax */
+}
+
+.menuButton {
+    font-size: 12px;
+    padding-left: 5px;
+    color: white;
+}

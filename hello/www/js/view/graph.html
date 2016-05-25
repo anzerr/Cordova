@@ -1,0 +1,17 @@
+<div style="width:95%;">
+
+    <div class="ui raised very padded text container segment">
+        <form class="ui form">
+            <div class="field">
+                <label>Graph table</label>
+                <select ng-model="type" ng-change="updateGraph()">
+                    <option ng-repeat="t in typeList" value="{{t.value}}">
+                        {{t.displayName}}
+                    </option>
+                </select>
+            </div>
+        </form>
+    </div>
+
+    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</div>
